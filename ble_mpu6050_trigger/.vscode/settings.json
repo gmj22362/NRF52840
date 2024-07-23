@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "uart_async_adapter.h": "c",
+        "uart.h": "c",
+        "ble.h": "c",
+        "stdio.h": "c",
+        "mpu6050.h": "c",
+        "custom_srv.h": "c"
+    }
+}

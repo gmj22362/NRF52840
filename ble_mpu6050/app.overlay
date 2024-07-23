@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2022 Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+ */
+
+/ {
+	chosen {
+		nordic,nus-uart = &uart0;
+	};
+};
+
+&i2c1 {
+	status = "okay";
+	// clock-frequency = <400000>;
+	mpu6050: mpu6050@68 {
+        compatible = "invensense,mpu6050";
+        reg = <0x68>; // I2C 地址
+		int-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+    };
+};
+ 
+//配置i2c1
+&i2c1_default {
+	group1 {
+		psels = <NRF_PSEL(TWIM_SDA, 0, 31)>, <NRF_PSEL(TWIM_SCL, 0, 30)>;
+	};
+};
